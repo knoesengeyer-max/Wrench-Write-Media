@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>The Mechanic's Marketer | Technical Marketing for US Shops</title>
+    <meta name="description" content="I am a qualified mechanic from South Africa providing technical marketing, SEO, and content creation for US Auto Repair Shops. Stop using stock photos; get technical accuracy.">
+    
     <style>
         /* --- RESET & VARIABLES --- */
         :root {
@@ -14,24 +17,24 @@
             --text-muted: #a0a0a0;
             --border: #333;
         }
+        
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; }
+        
         body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #e0e0e0;
-    /* OLD BACKGROUND: background-color: #111; */
-    
-    /* NEW BACKGROUND UPGRADE */
-    /* This loads a dark engine image and puts a 92% black layer on top of it */
-    background: linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.95)), 
-                url('https://images.unsplash.com/photo-1566276135248-18548455855f?q=80&w=2549&auto=format&fit=crop');
-    
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* This makes the background stay still when you scroll */
-    line-height: 1.6;
-}
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e0e0;
+            
+            /* ENGINE BACKGROUND UPGRADE */
+            background: linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.95)), 
+                        url('https://images.unsplash.com/photo-1566276135248-18548455855f?q=80&w=2549&auto=format&fit=crop');
+            
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            line-height: 1.6;
+        }
         
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 { font-weight: 700; letter-spacing: -0.5px; }
@@ -48,7 +51,7 @@
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
         /* --- BUTTONS --- */
-        .btn { display: inline-block; padding: 15px 35px; background: var(--primary); color: white; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        .btn { display: inline-block; padding: 15px 35px; background: var(--primary); color: white; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; text-decoration: none; }
         .btn:hover { background: #d32f2f; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 59, 48, 0.2); }
         .btn-outline { background: transparent; border: 2px solid var(--border); color: var(--text-main); margin-left: 10px; }
         .btn-outline:hover { border-color: var(--text-main); }
@@ -60,7 +63,7 @@
         .logo span { color: var(--primary); }
 
         /* --- HERO --- */
-        .hero { padding: 120px 0; background: radial-gradient(circle at top right, #2a2a2a 0%, #0f0f0f 60%); }
+        .hero { padding: 120px 0; background: radial-gradient(circle at top right, rgba(42,42,42,0.5) 0%, rgba(15,15,15,0) 60%); }
         .hero-content { max-width: 700px; }
         .tagline { display: inline-block; background: rgba(255, 59, 48, 0.1); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 20px; border: 1px solid rgba(255, 59, 48, 0.2); }
 
@@ -80,6 +83,7 @@
         .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); padding: 5px 15px; font-size: 0.75rem; border-radius: 20px; font-weight: bold; color: white; }
         .price { font-size: 3rem; font-weight: 800; color: white; margin: 10px 0; }
         .price span { font-size: 1rem; color: var(--text-muted); font-weight: normal; }
+        .features { list-style: none; padding: 0; margin: 20px 0; }
         .features li { margin-bottom: 12px; color: #ccc; font-size: 0.95rem; text-align: left; padding-left: 10px; }
         .features li::before { content: "✓"; color: var(--primary); margin-right: 10px; font-weight: bold; }
 
@@ -139,7 +143,7 @@
         </div>
     </section>
 
-    <section class="section-padding" style="background: #151515;">
+    <section class="section-padding" style="background: rgba(21, 21, 21, 0.8);">
         <div class="container">
             <div class="text-center" style="max-width: 700px; margin: 0 auto 60px auto;">
                 <h2>The South African Advantage</h2>
@@ -202,35 +206,5 @@
                     <div class="price">$1,999<span>/mo</span></div>
                     <ul class="features">
                         <li>Daily Content (7 Days)</li>
-                        <li>Facebook/Instagram Ads Setup</li>
-                        <li>Email Marketing (Newsletter)</li>
-                        <li>Reputation Management</li>
-                        <li>Priority Support</li>
-                    </ul>
-                    <a href="mailto:knoesengeyer@icloud.com?subject=Start Foreman Plan" class="btn" style="width: 100%; margin-top: 20px;">Start Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding text-center" style="background: #151515;">
-        <div class="container">
-            <h2 style="margin-bottom: 20px;">Ready to fill your bays?</h2>
-            <p style="margin-bottom: 40px;">Send me an email to get your free content audit.</p>
-            <a href="mailto:knoesengeyer@icloud.com" class="btn" style="font-size: 1.2rem; padding: 20px 50px;">Email Me: knoesengeyer@icloud.com</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container text-center">
-            <p>&copy; 2026 Wrench & Write Media. Based in Bloemfontein, SA. Serving Workshops Globally.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
-
-
-
-
-
+                        <li>Facebook/
+    
