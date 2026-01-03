@@ -1,210 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>The Mechanic's Marketer | Technical Marketing for US Shops</title>
-    <meta name="description" content="I am a qualified mechanic from South Africa providing technical marketing, SEO, and content creation for US Auto Repair Shops. Stop using stock photos; get technical accuracy.">
-    
-    <style>
-        /* --- RESET & VARIABLES --- */
-        :root {
-            --primary: #FF3B30; /* "Snap-on" Red */
-            --dark: #0f0f0f;    /* Deep Black */
-            --panel: #1a1a1a;   /* Carbon Grey */
-            --text-main: #f0f0f0;
-            --text-muted: #a0a0a0;
-            --border: #333;
-        }
-        
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #e0e0e0;
-            
-            /* ENGINE BACKGROUND UPGRADE */
-            background: linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.95)), 
-                        url('https://images.unsplash.com/photo-1566276135248-18548455855f?q=80&w=2549&auto=format&fit=crop');
-            
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Parallax effect */
-            line-height: 1.6;
-        }
-        
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3 { font-weight: 700; letter-spacing: -0.5px; }
-        h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 20px; }
-        h2 { font-size: 2.2rem; margin-bottom: 20px; color: white; }
-        p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px; }
-        .highlight { color: var(--primary); }
-        
-        /* --- LAYOUT UTILITIES --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .section-padding { padding: 100px 0; border-bottom: 1px solid var(--border); }
-        .text-center { text-align: center; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-        /* --- BUTTONS --- */
-        .btn { display: inline-block; padding: 15px 35px; background: var(--primary); color: white; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; text-decoration: none; }
-        .btn:hover { background: #d32f2f; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 59, 48, 0.2); }
-        .btn-outline { background: transparent; border: 2px solid var(--border); color: var(--text-main); margin-left: 10px; }
-        .btn-outline:hover { border-color: var(--text-main); }
-
-        /* --- HEADER --- */
-        header { padding: 25px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(15,15,15,0.95); backdrop-filter: blur(10px); z-index: 100; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-        .logo span { color: var(--primary); }
-
-        /* --- HERO --- */
-        .hero { padding: 120px 0; background: radial-gradient(circle at top right, rgba(42,42,42,0.5) 0%, rgba(15,15,15,0) 60%); }
-        .hero-content { max-width: 700px; }
-        .tagline { display: inline-block; background: rgba(255, 59, 48, 0.1); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 20px; border: 1px solid rgba(255, 59, 48, 0.2); }
-
-        /* --- THE STORY (CRITICAL SECTION) --- */
-        .story-img { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; filter: grayscale(100%); transition: 0.5s; border: 1px solid var(--border); }
-        .story-img:hover { filter: grayscale(0%); }
-        .story-box { background: var(--panel); padding: 40px; border-radius: 8px; border-left: 4px solid var(--primary); }
-
-        /* --- COMPARISON CARDS --- */
-        .card { background: var(--panel); padding: 40px; border-radius: 8px; border: 1px solid var(--border); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .icon { font-size: 2rem; margin-bottom: 20px; display: block; }
-
-        /* --- PRICING --- */
-        .price-card { background: var(--panel); padding: 50px 30px; border-radius: 8px; text-align: center; border: 1px solid var(--border); position: relative; }
-        .price-card.popular { border: 2px solid var(--primary); background: #151515; }
-        .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); padding: 5px 15px; font-size: 0.75rem; border-radius: 20px; font-weight: bold; color: white; }
-        .price { font-size: 3rem; font-weight: 800; color: white; margin: 10px 0; }
-        .price span { font-size: 1rem; color: var(--text-muted); font-weight: normal; }
-        .features { list-style: none; padding: 0; margin: 20px 0; }
-        .features li { margin-bottom: 12px; color: #ccc; font-size: 0.95rem; text-align: left; padding-left: 10px; }
-        .features li::before { content: "✓"; color: var(--primary); margin-right: 10px; font-weight: bold; }
-
-        /* --- FOOTER --- */
-        footer { padding: 50px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem; }
-
-        /* --- RESPONSIVE --- */
-        @media(max-width: 768px) {
-            .hero { padding: 80px 0; }
-            h1 { font-size: 2.5rem; }
-            .grid-2 { grid-template-columns: 1fr; gap: 40px; }
-            .btn { width: 100%; text-align: center; margin-bottom: 10px; margin-left: 0; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Wrench<span class="highlight">&</span>Write</div>
-                <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Get an Audit</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="tagline">SERVING US REPAIR SHOPS FROM SA</span>
-                <h1>Stop Paying Marketers Who Don't Know a <span class="highlight">Spark Plug</span> From a Drain Plug.</h1>
-                <p>I am a Qualified Mechanic turned Marketing Specialist. I build profitable brands for US Auto Repair shops using technical accuracy, not stock photos.</p>
-                <div style="margin-top: 30px;">
-                    <a href="#story" class="btn">Meet The Mechanic</a>
-                    <a href="#pricing" class="btn btn-outline">View Pricing</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="story" class="section-padding">
-        <div class="container">
-            <div class="grid-2">
-               <img src="Geyerdiff.JPEG" alt="Mechanic working" class="story-img">
-                
-                <div class="story-content">
-                    <h2>The Mechanic Who Wouldn't Quit</h2>
-                    <div class="story-box">
-                        <p style="color: white; font-weight: 500;">"I didn't choose to leave the workshop. The choice was made for me."</p>
-                        <p>I spent years in the bay. I know the firing order of a Ford V8, the frustration of a stripped bolt, and the satisfaction of a perfect diagnosis. But after a serious injury took away my ability to lift heavy parts, I had to hang up my overalls.</p>
-                        <p><strong>But I didn't lose my knowledge.</strong></p>
-                        <p>I realized that while I couldn't fix the cars physically, I could fix the <em>problem</em> most shops have: <strong>Disconnected Marketing.</strong></p>
-                        <p>Now, I use that technical obsession to help US shop owners communicate their value. I don't just "post content." I bridge the gap between the grease on the floor and the customer on the phone.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding" style="background: rgba(21, 21, 21, 0.8);">
-        <div class="container">
-            <div class="text-center" style="max-width: 700px; margin: 0 auto 60px auto;">
-                <h2>The South African Advantage</h2>
-                <p>I am based in Bloemfontein, South Africa. Here is why that is the best financial decision you will make this year.</p>
-            </div>
-            <div class="grid-3">
-                <div class="card">
-                    <span class="icon">🇿🇦</span>
-                    <h3 style="color: white; margin-bottom: 10px;">The "Service Manager" Level</h3>
-                    <p style="font-size: 0.95rem;">Because of the currency difference (USD to ZAR), you get a senior-level technical expert for the price of a junior US freelancer.</p>
-                </div>
-                <div class="card">
-                    <span class="icon">⏰</span>
-                    <h3 style="color: white; margin-bottom: 10px;">The Night Shift</h3>
-                    <p style="font-size: 0.95rem;">I work while you sleep. Send me a request at 5 PM Texas time, and it's done before you open your bay doors the next morning.</p>
-                </div>
-                <div class="card">
-                    <span class="icon">🤝</span>
-                    <h3 style="color: white; margin-bottom: 10px;">Work Ethic</h3>
-                    <p style="font-size: 0.95rem;">No corporate fluff. No "agency hours." Just honest, hard work from a mechanic who respects the trade.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="section-padding">
-        <div class="container">
-            <h2 class="text-center">Simple Monthly Pricing</h2>
-            <p class="text-center">No contracts. Cancel anytime.</p>
-            
-            <div class="pricing-grid grid-3" style="margin-top: 50px;">
-                <div class="price-card">
-                    <h3>Lube Tech</h3>
-                    <div class="price">$499<span>/mo</span></div>
-                    <ul class="features">
-                        <li>3 Technical Posts Per Week</li>
-                        <li>Custom Copywriting (US English)</li>
-                        <li>Hashtag Strategy</li>
-                        <li>Monthly Report</li>
-                    </ul>
-                    <a href="mailto:knoesengeyer@icloud.com?subject=Start Lube Tech Plan" class="btn" style="width: 100%; margin-top: 20px;">Start Now</a>
-                </div>
-
-                <div class="price-card popular">
-                    <div class="badge">MOST POPULAR</div>
-                    <h3>Master Tech</h3>
-                    <div class="price">$999<span>/mo</span></div>
-                    <ul class="features">
-                        <li>5 Technical Posts Per Week</li>
-                        <li><strong>Video/Reel Editing</strong> (From raw clips)</li>
-                        <li>Comment Management</li>
-                        <li>Google Business Profile SEO</li>
-                        <li>Strategy Calls</li>
-                    </ul>
-                    <a href="mailto:knoesengeyer@icloud.com?subject=Start Master Tech Plan" class="btn" style="width: 100%; margin-top: 20px;">Start Now</a>
-                </div>
-
-                <div class="price-card">
+<div class="price-card">
                     <h3>Shop Foreman</h3>
                     <div class="price">$1,999<span>/mo</span></div>
                     <ul class="features">
                         <li>Daily Content (7 Days)</li>
-                        <li>Facebook/
-    
+                        <li>Full Meta/Google Ad Management</li>
+                        <li>Email Marketing Newsletters</li>
+                        <li>Technical Blog Writing (SEO)</li>
+                        <li>Priority 24/7 Support</li>
+                    </ul>
+                    <a href="mailto:knoesengeyer@icloud.com?subject=Start Shop Foreman Plan" class="btn" style="width: 100%; margin-top: 20px;">Contact for Custom Build</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding text-center">
+        <div class="container">
+            <h2>Ready to tune up your marketing?</h2>
+            <p>Direct from Bloemfontein to your shop in the States. No BS, just results.</p>
+            <a href="mailto:knoesengeyer@icloud.com" class="btn">Send Me an Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Wrench & Write. Built by a mechanic, for mechanics.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
