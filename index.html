@@ -1,33 +1,155 @@
-<div class="price-card">
-                    <h3>Shop Foreman</h3>
-                    <div class="price">$1,999<span>/mo</span></div>
-                    <ul class="features">
-                        <li>Daily Content (7 Days)</li>
-                        <li>Full Meta/Google Ad Management</li>
-                        <li>Email Marketing Newsletters</li>
-                        <li>Technical Blog Writing (SEO)</li>
-                        <li>Priority 24/7 Support</li>
-                    </ul>
-                    <a href="mailto:knoesengeyer@icloud.com?subject=Start Shop Foreman Plan" class="btn" style="width: 100%; margin-top: 20px;">Contact for Custom Build</a>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrench & Write | Technical Marketing for US Auto Shops</title>
+    <meta name="description" content="Qualified mechanic from South Africa providing technical SEO and content for US Repair Shops. No stock photos, just technical accuracy.">
+    
+    <style>
+        /* --- DYNAMIC VARIABLES --- */
+        :root {
+            --primary: #FF3B30; /* Snap-on Red */
+            --accent: #007AFF;  /* Diagnostic Blue */
+            --dark: #050505;    /* Pitch Black */
+            --panel: rgba(26, 26, 26, 0.7); /* Glass Effect */
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- GLOBAL RESET --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background: var(--dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Engine background with heavy overlay */
+            background: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.95)), 
+                        url('https://images.unsplash.com/photo-1566276135248-18548455855f?q=80&w=2549&auto=format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* --- LAYOUT UTILS --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+        .section-padding { padding: 100px 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .text-center { text-align: center; }
+        .highlight { color: var(--primary); }
+
+        /* --- HEADER & NAVIGATION --- */
+        header { 
+            padding: 20px 0; 
+            background: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(15px); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid var(--border);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- DIAGNOSTIC TICKER --- */
+        .ticker {
+            background: var(--primary);
+            color: white;
+            font-family: 'Courier New', monospace;
+            padding: 8px 0;
+            font-size: 0.8rem;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-move {
+            display: inline-block;
+            animation: ticker-kf 30s linear infinite;
+        }
+        @keyframes ticker-kf {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- BUTTONS --- */
+        .btn { 
+            display: inline-block; 
+            padding: 14px 30px; 
+            background: var(--primary); 
+            color: white; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 4px; 
+            text-transform: uppercase; 
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 59, 48, 0.3); }
+        .btn-outline { background: transparent; border: 2px solid var(--border); margin-left: 10px; }
+
+        /* --- CARDS (GLASSMORPHISM) --- */
+        .card, .price-card, .story-box {
+            background: var(--panel);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 12px;
+            transition: 0.4s ease;
+        }
+        .card:hover { border-color: var(--accent); transform: scale(1.02); }
+
+        /* --- HERO SECTION --- */
+        .hero { padding: 150px 0 100px 0; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
+
+        /* --- PRICING --- */
+        .price-card.popular { border: 2px solid var(--primary); position: relative; }
+        .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; }
+        .price { font-size: 3rem; font-weight: 800; margin: 20px 0; }
+        .price span { font-size: 1rem; color: var(--text-muted); }
+        ul.features { list-style: none; text-align: left; margin-bottom: 30px; }
+        ul.features li { margin-bottom: 12px; color: var(--text-muted); }
+        ul.features li::before { content: "✓"; color: var(--primary); margin-right: 10px; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .btn-outline { margin-left: 0; margin-top: 15px; width: 100%; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">WRENCH<span class="highlight">&</span>WRITE</div>
+                <a href="#contact" class="btn" style="padding: 8px 18px; font-size: 0.8rem;">Free Shop Audit</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="ticker">
+        <div class="ticker-move">
+            // SCANNING SYSTEM... [OK] // TARGETING: US AUTO REPAIR SHOPS // DATA: TECHNICAL ACCURACY ENABLED // NO STOCK PHOTOS DETECTED // FROM BLOEMFONTEIN TO THE WORLD //
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Stop Paying Marketers Who Can't Tell a <span class="highlight">Bendix</span> From a Ball Joint.</h1>
+            <p>I’m a qualified mechanic from South Africa. I build technical marketing strategies for US shops that actually sound like they were written in a bay, not a cubicle.</p>
+            <div class="hero-btns">
+                <a href="#pricing" class="btn">View Service Tiers</a>
+                <a href="#story" class="btn btn-outline">My Story</a>
             </div>
         </div>
-    </section>
-
-    <section id="contact" class="section-padding text-center">
-        <div class="container">
-            <h2>Ready to tune up your marketing?</h2>
-            <p>Direct from Bloemfontein to your shop in the States. No BS, just results.</p>
-            <a href="mailto:knoesengeyer@icloud.com" class="btn">Send Me an Email</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container text-center">
-            <p>&copy; 2026 Wrench & Write. Built by a mechanic, for mechanics.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
-
+    </section
