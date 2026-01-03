@@ -15,9 +15,23 @@
             --border: #333;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; }
-        body { background-color: var(--dark); color: var(--text-main); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+    /* OLD BACKGROUND: background-color: #111; */
+    
+    /* NEW BACKGROUND UPGRADE */
+    /* This loads a dark engine image and puts a 92% black layer on top of it */
+    background: linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.95)), 
+                url('https://images.unsplash.com/photo-1566276135248-18548455855f?q=80&w=2549&auto=format&fit=crop');
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* This makes the background stay still when you scroll */
+    line-height: 1.6;
+}
         
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 { font-weight: 700; letter-spacing: -0.5px; }
@@ -215,6 +229,7 @@
 
 </body>
 </html>
+
 
 
 
