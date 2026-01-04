@@ -30,10 +30,12 @@
         .highlight { color: var(--primary); font-weight: 800; }
         .blue-glow { color: var(--accent); text-shadow: 0 0 10px rgba(0, 122, 255, 0.5); }
 
-        /* --- HEADER & TICKER --- */
-        header { padding: 25px 0; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        /* --- HEADER --- */
+        header { padding: 20px 0; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        
+        .shop-status { font-family: 'Courier New', monospace; font-size: 0.75rem; color: var(--success); border: 1px solid var(--success); padding: 4px 10px; border-radius: 4px; }
+
+        /* --- TICKER --- */
         .ticker { background: var(--primary); padding: 10px 0; overflow: hidden; white-space: nowrap; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.85rem; border-bottom: 2px solid #000; }
         .ticker-inner { display: inline-block; animation: scroll 40s linear infinite; }
         @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
@@ -43,42 +45,37 @@
         .hero h1 { font-size: 4.5rem; line-height: 1; margin-bottom: 30px; text-transform: uppercase; letter-spacing: -2px; }
         .hero p { font-size: 1.4rem; color: #aaa; max-width: 700px; margin-bottom: 40px; }
 
-        /* --- CASE STUDY SECTION --- */
-        .case-study { padding: 100px 0; background: #0c0c0c; border-top: 1px solid var(--border); }
+        /* --- CERTIFICATIONS / STACK BAR --- */
+        .stack-bar { background: #111; padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .stack-grid { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 30px; opacity: 0.7; }
+        .stack-item { text-align: center; }
+        .stack-item strong { display: block; font-size: 0.7rem; color: var(--accent); text-transform: uppercase; margin-top: 5px; }
+
+        /* --- CASE STUDY --- */
+        .case-study { padding: 100px 0; background: #0c0c0c; }
         .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
         .comp-card { padding: 30px; border-radius: 8px; border: 1px solid var(--border); }
         .comp-card.bad { border-left: 4px solid #444; background: rgba(255,255,255,0.02); }
         .comp-card.good { border-left: 4px solid var(--success); background: rgba(52, 199, 89, 0.05); }
 
-        /* --- PROCESS GRID --- */
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 50px; }
-        .step { background: var(--panel); padding: 30px; border-left: 3px solid var(--accent); border-radius: 4px; transition: 0.3s; }
-        .step:hover { background: #151515; border-left-color: var(--primary); }
-        .step span { font-family: 'Courier New', monospace; color: var(--accent); font-size: 0.9rem; }
-
-        /* --- FAQ SECTION --- */
-        .faq-section { background: #0a0a0a; padding: 100px 0; }
-        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; }
-        .faq-item { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border: 1px solid var(--border); }
-        .faq-item h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.1rem; }
-
         /* --- PRICING --- */
         .pricing-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 60px; }
         .p-card { background: var(--panel); padding: 50px 30px; border: 1px solid var(--border); border-radius: 8px; transition: 0.3s; position: relative; }
         .p-card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .p-card.featured { border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(255, 59, 48, 0.2); background: #0c0c0c; }
+        .p-card.featured { border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(255, 59, 48, 0.2); }
         .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; }
         .price span { font-size: 1rem; color: #777; }
 
-        /* --- CTA --- */
+        /* --- BUTTONS --- */
         .btn { display: inline-block; padding: 18px 40px; background: var(--primary); color: white; text-decoration: none; font-weight: 900; text-transform: uppercase; border-radius: 4px; transition: 0.3s; letter-spacing: 1px; border: none; cursor: pointer; }
         .btn:hover { background: #ff5247; box-shadow: 0 0 20px rgba(255, 59, 48, 0.4); }
 
-        footer { padding: 80px 0 40px; background: #000; text-align: center; border-top: 1px solid var(--border); color: #555; }
+        footer { padding: 60px 0; background: #000; text-align: center; border-top: 1px solid var(--border); color: #555; }
 
         @media (max-width: 992px) {
-            .pricing-wrap, .faq-grid, .comparison-box { grid-template-columns: 1fr; }
+            .pricing-wrap, .comparison-box { grid-template-columns: 1fr; }
             .hero h1 { font-size: 3rem; }
+            .stack-grid { justify-content: center; }
         }
     </style>
 </head>
@@ -88,14 +85,15 @@
         <div class="container">
             <nav>
                 <div style="font-size: 1.5rem; font-weight: 900;">WRENCH<span class="highlight">&</span>WRITE</div>
-                <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Request Technical Audit</a>
+                <div class="shop-status">● SYSTEM ACTIVE [SA TIME: 17:00]</div>
+                <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Request Audit</a>
             </nav>
         </div>
     </header>
 
     <div class="ticker">
         <div class="ticker-inner">
-            // STATUS: SYSTEM NOMINAL // LOCATION: BLOEMFONTEIN, SOUTH AFRICA // SPECIALTY: AUTOMOTIVE REPAIR MARKETING // CURRENCY ADVANTAGE ENABLED // OVERNIGHT DELIVERY UPDATES // 
+            // LIVE DATA: 100% TECHNICAL ACCURACY // CURRENCY ADVANTAGE: HIGH // BLOEMFONTEIN NODE ONLINE // US MARKET SPECIALISTS // NO STOCK PHOTOS ALLOWED // 
         </div>
     </div>
 
@@ -103,84 +101,45 @@
         <div class="container text-center">
             <span class="blue-glow" style="font-weight: bold; letter-spacing: 2px;">THE MECHANIC'S MARKETING AGENCY</span>
             <h1>Technical Accuracy. <br><span class="highlight">No Commercial Fluff.</span></h1>
-            <p style="margin: 0 auto 40px;">I’m a qualified mechanic turned marketer. I help US shop owners fill their bays with high-ticket diagnostic and repair work by speaking the customer's language with technical precision.</p>
+            <p style="margin: 0 auto 40px;">Certified expertise combined with 10+ years of mechanical trade knowledge. I help US shop owners fill their bays with high-ticket work by speaking the technical language customers trust.</p>
             <a href="#pricing" class="btn">View Service Tiers</a>
+        </div>
+    </section>
+
+    <section class="stack-bar">
+        <div class="container">
+            <div class="stack-grid">
+                <div class="stack-item"><strong>Qualified</strong> MECHANIC</div>
+                <div class="stack-item"><strong>Certified</strong> GOOGLE ADS</div>
+                <div class="stack-item"><strong>Expert</strong> META BLUEPRINT</div>
+                <div class="stack-item"><strong>Certified</strong> HUBSPOT SEO</div>
+                <div class="stack-item"><strong>Platform</strong> CANVA PRO</div>
+                <div class="stack-item"><strong>Ops</strong> CAPCUT VIDEO</div>
+            </div>
         </div>
     </section>
 
     <section class="case-study">
         <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem;">Case Study: <span class="highlight">The Diagnostic Win</span></h2>
-            <p style="text-align: center; color: #888;">How technical content beats generic posting every single time.</p>
-            
+            <h2 style="text-align: center; font-size: 2.5rem;">Case Study: <span class="highlight">Technical Authority</span></h2>
             <div class="comparison-box">
                 <div class="comp-card bad">
                     <h3 style="color: #666; margin-bottom: 10px;">The "Generic" Agency Post</h3>
-                    <p style="font-style: italic; font-size: 0.9rem;">"Is your car making a weird noise? Come visit us today for a check-up! 🚗💨 #Mechanic #CarFix"</p>
-                    <ul style="margin-top: 15px; color: #555; font-size: 0.85rem;">
-                        <li>• Stock photo of a smiling person holding a wrench.</li>
-                        <li>• No technical information.</li>
-                        <li>• Attracts "price shoppers" and tire-kickers.</li>
+                    <p style="font-style: italic; font-size: 0.9rem;">"Is your car making a weird noise? Come visit us today for a check-up! 🚗💨 #Mechanic"</p>
+                    <ul style="margin-top: 15px; color: #555; font-size: 0.85rem; list-style:none;">
+                        <li>• Stock photo of a generic person</li>
+                        <li>• Zero technical value</li>
+                        <li>• Attracts price-sensitive customers</li>
                     </ul>
                 </div>
                 <div class="comp-card good">
                     <h3 style="color: var(--success); margin-bottom: 10px;">The Wrench & Write Post</h3>
-                    <p style="font-style: italic; font-size: 0.9rem;">"P0300 Random Misfire? We just found a carbon-tracked ignition coil on this 2018 F-150. Here is how a simple visual inspection saved this client a $2,000 catalytic converter replacement..."</p>
-                    <ul style="margin-top: 15px; color: #aaa; font-size: 0.85rem;">
-                        <li>• Real photo of the actual failed part.</li>
-                        <li>• Explains the *why* and the *value* of the repair.</li>
-                        <li>• Attracts high-ticket clients who value expertise.</li>
+                    <p style="font-style: italic; font-size: 0.9rem;">"P0300 Random Misfire? We just found carbon-tracking on this 2018 F-150 coil. Here is how visual inspection saved this client a $2k Cat replacement..."</p>
+                    <ul style="margin-top: 15px; color: #aaa; font-size: 0.85rem; list-style:none;">
+                        <li>• Real photo of the component failure</li>
+                        <li>• Builds expert trust instantly</li>
+                        <li>• Attracts high-margin diagnostic work</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container" style="padding: 100px 0;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 40px; text-align: center;">The <span class="highlight">Workflow</span></h2>
-        <div class="process-grid">
-            <div class="step">
-                <span>01. INTAKE</span>
-                <h3>Digital Diagnosis</h3>
-                <p>We audit your GMB, Socials, and SEO to find where you're leaking leads.</p>
-            </div>
-            <div class="step">
-                <span>02. REPAIR</span>
-                <h3>Content Overhaul</h3>
-                <p>No more stock photos. We use real shop footage to build technical authority.</p>
-            </div>
-            <div class="step">
-                <span>03. TEST DRIVE</span>
-                <h3>Ad Optimization</h3>
-                <p>Precision-targeted Meta and Google ads for the specific high-margin jobs you want.</p>
-            </div>
-            <div class="step">
-                <span>04. DELIVERY</span>
-                <h3>Night-Shift Updates</h3>
-                <p>Based in SA, I work while you're in the bay. Wake up to fresh content every morning.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq-section">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem;">Service <span class="highlight">FAQs</span></h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>"You're in South Africa. How does that help me?"</h3>
-                    <p>It’s your biggest advantage. First, the currency difference means you get Master Tech-level expertise for Lube Tech prices. Second, I work during your night, meaning your marketing is finished and posted before you even have your morning coffee.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>"How do I send you my shop photos/videos?"</h3>
-                    <p>We use a dedicated Dropbox or Google Drive folder. Your techs simply upload raw clips of cool repairs or diagnostic wins, and I handle all the editing, technical writing, and posting.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>"Do you understand the US market?"</h3>
-                    <p>Yes. I specialize in US English and understand the American consumer's expectations for convenience, transparency, and technical proof in the auto industry.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>"Is there a long-term contract?"</h3>
-                    <p>No. I believe in earning my keep every month. You can cancel at any time—but once you see the bays filling up, you won't want to.</p>
                 </div>
             </div>
         </div>
@@ -199,9 +158,8 @@
                     <li>• 3 Technical Posts Per Week</li>
                     <li>• GMB Profile SEO</li>
                     <li>• US English Copywriting</li>
-                    <li>• Basic Reporting</li>
                 </ul>
-                <a href="mailto:knoesengeyer@icloud.com?subject=Lube%20Tech" class="btn" style="width:100%; text-align:center;">Select Plan</a>
+                <a href="mailto:knoesengeyer@icloud.com?subject=Lube%20Tech" class="btn" style="width:100%; text-align:center;">Select</a>
             </div>
 
             <div class="p-card featured">
@@ -212,9 +170,8 @@
                     <li>• 5 Technical Posts Per Week</li>
                     <li>• <strong>Short-form Video Editing</strong></li>
                     <li>• Full GMB Management</li>
-                    <li>• Lead & Review Management</li>
                 </ul>
-                <a href="mailto:knoesengeyer@icloud.com?subject=Master%20Tech" class="btn" style="width:100%; text-align:center;">Select Plan</a>
+                <a href="mailto:knoesengeyer@icloud.com?subject=Master%20Tech" class="btn" style="width:100%; text-align:center;">Select</a>
             </div>
 
             <div class="p-card">
@@ -223,26 +180,25 @@
                 <ul style="list-style: none; color: #aaa; margin-bottom: 30px;">
                     <li>• Daily Technical Content</li>
                     <li>• Meta & Google Ads Management</li>
-                    <li>• SEO Content/Blog Writing</li>
-                    <li>• Email Marketing Newsletters</li>
+                    <li>• Technical Blog/SEO Writing</li>
                 </ul>
-                <a href="mailto:knoesengeyer@icloud.com?subject=Shop%20Foreman" class="btn" style="width:100%; text-align:center;">Select Plan</a>
+                <a href="mailto:knoesengeyer@icloud.com?subject=Shop%20Foreman" class="btn" style="width:100%; text-align:center;">Select</a>
             </div>
         </div>
     </section>
 
-    <section id="contact" style="padding: 120px 0; text-align: center; background: #000;">
+    <section id="contact" style="padding: 100px 0; text-align: center; background: #000;">
         <div class="container">
             <div style="background: #111; padding: 60px; border-radius: 15px; border: 1px solid var(--primary);">
-                <h2 style="font-size: 3rem; margin-bottom: 20px;">Ready for a <span class="highlight">Diagnostic?</span></h2>
-                <p style="margin-bottom: 40px; font-size: 1.2rem; color: #888;">Stop losing customers to the generic shop down the road. Let's build your authority today.</p>
-                <a href="mailto:knoesengeyer@icloud.com" class="btn">Email Me Directly</a>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to <span class="highlight">Tune-Up?</span></h2>
+                <p style="margin-bottom: 40px; color: #888;">Direct from South Africa to your bay doors. No BS, just results.</p>
+                <a href="mailto:knoesengeyer@icloud.com" class="btn">Send an Email</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 WRENCH & WRITE. BLOEMFONTEIN, SA. <br> Serving US Auto Repair Shops with Technical Excellence.</p>
+        <p>&copy; 2026 WRENCH & WRITE. BLOEMFONTEIN, SA. <br> Expert Technical Marketing for US Auto Repair Shops.</p>
     </footer>
 
 </body>
