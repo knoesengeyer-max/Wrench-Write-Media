@@ -45,7 +45,7 @@
         .hero h1 { font-size: 4.5rem; line-height: 1; margin-bottom: 30px; text-transform: uppercase; letter-spacing: -2px; }
         .hero p { font-size: 1.4rem; color: #aaa; max-width: 700px; margin-bottom: 40px; }
 
-        /* --- CERTIFICATIONS / STACK BAR --- */
+        /* --- STACK BAR --- */
         .stack-bar { background: #111; padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .stack-grid { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 30px; opacity: 0.7; }
         .stack-item { text-align: center; }
@@ -58,30 +58,11 @@
         .comp-card.bad { border-left: 4px solid #444; background: rgba(255,255,255,0.02); }
         .comp-card.good { border-left: 4px solid var(--success); background: rgba(52, 199, 89, 0.05); }
 
-      <section class="container" style="padding-bottom: 100px;">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Content <span class="highlight">Sample</span></h2>
-        <div class="card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: #111;">
-            <div class="sample-image">
-                <div style="width: 100%; height: 400px; background: #222; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #444; border: 2px dashed #333;">
-                    
-                </div>
-            </div>
-            <div class="sample-text">
-                <span style="color: var(--success); font-weight: bold; font-size: 0.8rem;">SERVICE TYPE: PREVENTATIVE MAINTENANCE</span>
-                <h3 style="font-size: 1.8rem; margin: 15px 0;">Timing Belt vs. Interference Engines</h3>
-                <p style="color: #ccc; margin-bottom: 20px;">
-                    Most marketers write: "Come get a tune-up!" 
-                    <br><br>
-                    <strong>I write:</strong> "If your hydraulic tensioner fails on this 3.5L V6, your valves and pistons are going to have a very expensive conversation. We don't just replace the belt; we save the engine."
-                </p>
-                <div style="padding: 15px; background: rgba(0,0,0,0.3); border-radius: 5px; border-left: 3px solid var(--primary);">
-                    <p style="font-size: 0.9rem; color: #888; font-style: italic;">
-                        "This post generated 4 direct booking inquiries for a local shop in under 48 hours."
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>  /* --- PRICING --- */
+        /* --- CONTENT SAMPLES --- */
+        .sample-section { padding-bottom: 100px; }
+        .card { padding: 40px; border-radius: 12px; border: 1px solid var(--border); background: #111; }
+
+        /* --- PRICING --- */
         .pricing-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 60px; }
         .p-card { background: var(--panel); padding: 50px 30px; border: 1px solid var(--border); border-radius: 8px; transition: 0.3s; position: relative; }
         .p-card:hover { border-color: var(--primary); transform: translateY(-10px); }
@@ -96,7 +77,7 @@
         footer { padding: 60px 0; background: #000; text-align: center; border-top: 1px solid var(--border); color: #555; }
 
         @media (max-width: 992px) {
-            .pricing-wrap, .comparison-box { grid-template-columns: 1fr; }
+            .pricing-wrap, .comparison-box, .sample-grid { grid-template-columns: 1fr !important; }
             .hero h1 { font-size: 3rem; }
             .stack-grid { justify-content: center; }
         }
@@ -108,7 +89,7 @@
         <div class="container">
             <nav>
                 <div style="font-size: 1.5rem; font-weight: 900;">WRENCH<span class="highlight">&</span>WRITE</div>
-                <div class="shop-status">● SYSTEM ACTIVE [SA TIME: 17:00]</div>
+                <div class="shop-status">● SYSTEM ACTIVE [BLOEMFONTEIN, SA]</div>
                 <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Request Audit</a>
             </nav>
         </div>
@@ -163,6 +144,46 @@
                         <li>• Builds expert trust instantly</li>
                         <li>• Attracts high-margin diagnostic work</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container sample-section">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Work <span class="highlight">Samples</span></h2>
+        
+        <div class="card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 30px;">
+            <div class="sample-image">
+                <div style="width: 100%; height: 300px; background: #222; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #444; border: 2px dashed #333;">
+                   
+                </div>
+            </div>
+            <div class="sample-text">
+                <span style="color: var(--success); font-weight: bold; font-size: 0.8rem;">POST SAMPLE: PREVENTATIVE MAINTENANCE</span>
+                <h3 style="font-size: 1.8rem; margin: 15px 0;">Timing Belt vs. Interference Engines</h3>
+                <p style="color: #ccc; margin-bottom: 20px;">
+                    "If your hydraulic tensioner fails on this 3.5L V6, your valves and pistons are going to have a very expensive conversation. We don't just replace the belt; we save the engine."
+                </p>
+                <div style="padding: 15px; background: rgba(0,0,0,0.3); border-radius: 5px; border-left: 3px solid var(--primary);">
+                    <p style="font-size: 0.9rem; color: #888; font-style: italic;">Results: 4 booking inquiries in 48 hours for a local client.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+            <div class="sample-text">
+                <span style="color: var(--accent); font-weight: bold; font-size: 0.8rem;">VIDEO SAMPLE: BRAKE PULSATION REEL</span>
+                <h3 style="font-size: 1.8rem; margin: 15px 0;">"My steering wheel shakes when I brake"</h3>
+                <p style="color: #ccc; margin-bottom: 20px;">
+                    <strong>Script Hook:</strong> "Most shops just throw pads at a shake. We measure lateral runout. If your hub is out by even .002, those new rotors will warp again in 3,000 miles. Here’s the right way to do a brake job..."
+                </p>
+                <div style="padding: 15px; background: rgba(0,0,0,0.3); border-radius: 5px; border-left: 3px solid var(--accent);">
+                    <p style="font-size: 0.9rem; color: #888; font-style: italic;">Focus: Sells high-quality rotor matching & hub cleaning labor.</p>
+                </div>
+            </div>
+            <div class="sample-image">
+                <div style="width: 100%; height: 300px; background: #222; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #444; border: 2px dashed #333;">
+                   
                 </div>
             </div>
         </div>
