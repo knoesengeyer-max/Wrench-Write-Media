@@ -38,10 +38,14 @@
         .ticker-inner { display: inline-block; animation: scroll 40s linear infinite; }
         @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
 
-        .hero { padding: 150px 0 100px; position: relative; }
+        .hero { padding: 150px 0 80px; position: relative; }
         .hero h1 { font-size: 4.5rem; line-height: 1; margin-bottom: 30px; text-transform: uppercase; letter-spacing: -2px; }
-        .hero p { font-size: 1.4rem; color: #aaa; max-width: 700px; margin-bottom: 40px; }
-
+        
+        /* --- STORY SECTION --- */
+        .story-box { background: #111; padding: 60px 40px; border-radius: 15px; border: 1px solid var(--border); margin-bottom: 80px; position: relative; overflow: hidden; }
+        .story-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary); }
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        
         .stack-bar { background: #111; padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .stack-grid { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 30px; opacity: 0.7; }
         .stack-item { text-align: center; }
@@ -49,34 +53,22 @@
 
         .sample-section { padding: 100px 0; }
         .card { padding: 40px; border-radius: 12px; border: 1px solid var(--border); background: #111; margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .sample-image img { width: 100%; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s ease; }
+        .sample-image img { width: 100%; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-        /* --- DETAILED PRICING --- */
         .pricing-section { padding: 100px 0; background: #050505; }
         .pricing-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 50px; }
-        .p-card { background: #111; padding: 40px 30px; border: 1px solid var(--border); border-radius: 12px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; display: flex; flex-direction: column; }
-        .p-card:hover { border-color: var(--primary); transform: translateY(-10px); background: #151515; }
-        .p-card.featured { border: 2px solid var(--primary); box-shadow: 0 0 40px rgba(255, 59, 48, 0.15); transform: scale(1.05); z-index: 10; }
-        .p-card.featured:hover { transform: scale(1.05) translateY(-10px); }
+        .p-card { background: #111; padding: 40px 30px; border: 1px solid var(--border); border-radius: 12px; transition: 0.4s; position: relative; display: flex; flex-direction: column; }
+        .p-card.featured { border: 2px solid var(--primary); transform: scale(1.05); }
         
-        .p-card h3 { font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-        .price { font-size: 3.5rem; font-weight: 900; margin: 15px 0; line-height: 1; }
-        .price span { font-size: 1rem; color: #666; font-weight: 400; }
-        
+        .price { font-size: 3.5rem; font-weight: 900; margin: 15px 0; }
         .p-features { list-style: none; margin: 25px 0; flex-grow: 1; }
-        .p-features li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: #aaa; font-size: 0.95rem; }
-        .p-features li strong { color: #fff; }
-        .p-features li::before { content: "✓"; color: var(--success); margin-right: 10px; font-weight: bold; }
+        .p-features li { padding: 8px 0; color: #aaa; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-        .btn { display: inline-block; padding: 18px 40px; background: var(--primary); color: white; text-decoration: none; font-weight: 900; text-transform: uppercase; border-radius: 4px; transition: 0.3s; letter-spacing: 1px; border: none; cursor: pointer; text-align: center; }
-        .btn-outline { background: transparent; border: 1px solid var(--border); }
-        .btn-outline:hover { background: #fff; color: #000; }
-
-        footer { padding: 60px 0; background: #000; text-align: center; border-top: 1px solid var(--border); color: #555; }
+        .btn { display: inline-block; padding: 18px 40px; background: var(--primary); color: white; text-decoration: none; font-weight: 900; text-transform: uppercase; border-radius: 4px; transition: 0.3s; text-align: center; }
 
         @media (max-width: 992px) {
-            .pricing-wrap, .card { grid-template-columns: 1fr !important; }
-            .p-card.featured { transform: scale(1); }
+            .pricing-wrap, .card, .story-grid { grid-template-columns: 1fr !important; }
+            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -94,16 +86,52 @@
 
     <div class="ticker">
         <div class="ticker-inner">
-            // LIVE DATA: 100% TECHNICAL ACCURACY // US MARKET SPECIALISTS // NO STOCK PHOTOS ALLOWED // OVER 10+ YEARS MECHANICAL EXPERIENCE // 
+            // FROM THE SHOP FLOOR TO THE AD CONSOLE // 100% TECHNICAL ACCURACY // US MARKET SPECIALISTS // BUILT BY A MECHANIC FOR MECHANICS // 
         </div>
     </div>
 
     <section class="hero">
         <div class="container text-center">
-            <span class="blue-glow" style="font-weight: bold; letter-spacing: 2px;">THE MECHANIC'S MARKETING AGENCY</span>
-            <h1>Technical Accuracy. <br><span class="highlight">No Commercial Fluff.</span></h1>
-            <p style="margin: 0 auto 40px;">I help US shop owners fill their bays with high-ticket work by speaking the technical language customers trust.</p>
-            <a href="#pricing" class="btn">View Service Tiers</a>
+            <span class="blue-glow" style="font-weight: bold; letter-spacing: 2px;">MARKETING WITH A MASTER TECH PEDIGREE</span>
+            <h1>I Speak <span class="highlight">Automotive.</span></h1>
+            <p style="margin: 0 auto 40px; max-width: 800px; font-size: 1.3rem; color: #ccc;">Generic agencies don't know the difference between a head gasket and a valve cover. <strong>I do.</strong> I fill your bays by proving your shop is the technical authority in your city.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="story-box">
+            <div class="story-grid">
+                <div>
+                    <h2 style="font-size: 2.2rem; margin-bottom: 20px; text-transform: uppercase;">From <span class="highlight">Wrenches</span> to Writing</h2>
+                    <p style="margin-bottom: 20px; color: #ddd;">
+                        I didn't start my career in a marketing office. I started it in the workshop. I am a <strong>Qualified Mechanic</strong> who spent years diagnosing complex failures and performing heavy engine repairs.
+                    </p>
+                    <p style="margin-bottom: 20px; color: #ddd;">
+                        A career-ending injury took me away from the bay, but it didn't take away my knowledge. I realized that the biggest problem most shop owners face isn't their skill—it's that the "marketing experts" they hire have no idea how a car actually works.
+                    </p>
+                    <p style="color: var(--accent); font-weight: bold;">
+                        Today, I use my technical background to bridge the gap. I write the content that makes your customers trust you before they even call.
+                    </p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="border: 2px dashed #333; padding: 20px; border-radius: 10px;">
+                        <span style="font-size: 3rem;">🛠️ ➔ 📈</span>
+                        <h3 style="margin-top: 15px;">The Advantage</h3>
+                        <p style="font-size: 0.9rem; color: #888;">I save you 10+ hours a month because you never have to "explain the job" to me. I already know it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stack-bar">
+        <div class="container">
+            <div class="stack-grid">
+                <div class="stack-item"><strong>Qualified</strong> MECHANIC</div>
+                <div class="stack-item"><strong>Certified</strong> GOOGLE ADS</div>
+                <div class="stack-item"><strong>Expert</strong> META BLUEPRINT</div>
+                <div class="stack-item"><strong>Certified</strong> HUBSPOT SEO</div>
+            </div>
         </div>
     </section>
 
@@ -116,16 +144,16 @@
             </div>
             <div class="sample-text">
                 <span style="color: var(--primary); font-weight: bold; font-size: 0.8rem;">DIAGNOSTIC CASE: ENGINE HEALTH</span>
-                <h3 style="font-size: 1.8rem; margin: 15px 0;">Numbers Don't Lie: The Compression Reality</h3>
-                <p style="color: #ccc;">We use diagnostic data to justify the teardown. This builds trust through transparent data for your customers.</p>
+                <h3 style="font-size: 1.8rem; margin: 15px 0;">Numbers Don't Lie</h3>
+                <p style="color: #ccc;">I show your clients exactly why that "Check Engine" light matters, using the data I used to read every day.</p>
             </div>
         </div>
 
         <div class="card">
             <div class="sample-text">
                 <span style="color: var(--accent); font-weight: bold; font-size: 0.8rem;">EURO SPEC: BMW B48 PLATFORM</span>
-                <h3 style="font-size: 1.8rem; margin: 15px 0;">B48 Coolant Loss: The Silent Killer</h3>
-                <p style="color: #ccc;">Targeting high-margin Euro-repair customers with preventative maintenance insights.</p>
+                <h3 style="font-size: 1.8rem; margin: 15px 0;">B48 Coolant Loss</h3>
+                <p style="color: #ccc;">Educating high-ticket Euro owners on preventative maintenance before the breakdown happens.</p>
             </div>
             <div class="sample-image">
                 <img src="bmw.JPEG" alt="BMW B48 Leak">
@@ -137,56 +165,42 @@
         <div class="container">
             <div style="text-align: center; margin-bottom: 60px;">
                 <h2 style="font-size: 3rem; text-transform: uppercase;">Service <span class="highlight">Packages</span></h2>
-                <p style="color: #777;">Fixed Monthly Rates. No Contracts. Just Performance.</p>
             </div>
 
             <div class="pricing-wrap">
                 <div class="p-card">
                     <h3>Lube Tech</h3>
-                    <p style="color: #666; font-size: 0.8rem;">Foundation Marketing</p>
                     <div class="price">$499<span>/mo</span></div>
                     <ul class="p-features">
-                        <li><strong>3 Technical Posts</strong> per week</li>
-                        <li>GMB Profile Optimization</li>
+                        <li>3 Technical Posts / Week</li>
+                        <li>GMB Optimization</li>
                         <li>US English Copywriting</li>
-                        <li>Basic Monthly Report</li>
-                        <li>Email Support</li>
                     </ul>
-                    <a href="mailto:knoesengeyer@icloud.com?subject=Lube%20Tech%20Package" class="btn btn-outline">Start Here</a>
+                    <a href="mailto:knoesengeyer@icloud.com?subject=Lube%20Tech" class="btn">Select</a>
                 </div>
 
                 <div class="p-card featured">
-                    <div style="position: absolute; top: -15px; background: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; left: 50%; transform: translateX(-50%);">MOST POPULAR</div>
                     <h3>Master Tech</h3>
-                    <p style="color: #888; font-size: 0.8rem;">Full Growth Management</p>
                     <div class="price">$999<span>/mo</span></div>
                     <ul class="p-features">
-                        <li><strong>5 Technical Posts</strong> per week</li>
-                        <li>Short-form Video Editing</li>
-                        <li>Full GMB Management</li>
-                        <li><strong>Competitor Tracking</strong></li>
-                        <li>Priority WhatsApp Support</li>
+                        <li>5 Technical Posts / Week</li>
+                        <li>Video Editing Included</li>
+                        <li>Full Competitor Audit</li>
                     </ul>
-                    <a href="mailto:knoesengeyer@icloud.com?subject=Master%20Tech%20Package" class="btn">Build My Shop</a>
+                    <a href="mailto:knoesengeyer@icloud.com?subject=Master%20Tech" class="btn">Select</a>
                 </div>
 
                 <div class="p-card">
                     <h3>Shop Foreman</h3>
-                    <p style="color: #666; font-size: 0.8rem;">The Enterprise Solution</p>
                     <div class="price">$1,999<span>/mo</span></div>
                     <ul class="p-features">
-                        <li><strong>Daily</strong> Technical Content</li>
-                        <li>Meta & Google Ads Mgmt</li>
-                        <li>Long-form Blog Writing</li>
-                        <li>Full Lead Tracking CRM</li>
-                        <li>Strategy Zoom Calls (2x)</li>
+                        <li>Daily Content Stream</li>
+                        <li>Google/Meta Ad Mgmt</li>
+                        <li>Monthly Strategy Calls</li>
                     </ul>
-                    <a href="mailto:knoesengeyer@icloud.com?subject=Shop%20Foreman%20Package" class="btn btn-outline">Scale Now</a>
+                    <a href="mailto:knoesengeyer@icloud.com?subject=Shop%20Foreman" class="btn">Select</a>
                 </div>
             </div>
-            
-            
-
         </div>
     </section>
 
