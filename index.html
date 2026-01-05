@@ -47,31 +47,36 @@
         .stack-item { text-align: center; }
         .stack-item strong { display: block; font-size: 0.7rem; color: var(--accent); text-transform: uppercase; margin-top: 5px; }
 
-        .case-study { padding: 100px 0; background: #0c0c0c; }
-        .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-        .comp-card { padding: 30px; border-radius: 8px; border: 1px solid var(--border); }
-        .comp-card.bad { border-left: 4px solid #444; background: rgba(255,255,255,0.02); }
-        .comp-card.good { border-left: 4px solid var(--success); background: rgba(52, 199, 89, 0.05); }
-
         .sample-section { padding: 100px 0; }
         .card { padding: 40px; border-radius: 12px; border: 1px solid var(--border); background: #111; margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .sample-image img { width: 100%; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s ease; }
 
-        .pricing-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 60px; }
-        .p-card { background: var(--panel); padding: 50px 30px; border: 1px solid var(--border); border-radius: 8px; transition: 0.3s; position: relative; }
-        .p-card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .p-card.featured { border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(255, 59, 48, 0.2); }
-        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; }
-        .price span { font-size: 1rem; color: #777; }
+        /* --- DETAILED PRICING --- */
+        .pricing-section { padding: 100px 0; background: #050505; }
+        .pricing-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 50px; }
+        .p-card { background: #111; padding: 40px 30px; border: 1px solid var(--border); border-radius: 12px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; display: flex; flex-direction: column; }
+        .p-card:hover { border-color: var(--primary); transform: translateY(-10px); background: #151515; }
+        .p-card.featured { border: 2px solid var(--primary); box-shadow: 0 0 40px rgba(255, 59, 48, 0.15); transform: scale(1.05); z-index: 10; }
+        .p-card.featured:hover { transform: scale(1.05) translateY(-10px); }
+        
+        .p-card h3 { font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .price { font-size: 3.5rem; font-weight: 900; margin: 15px 0; line-height: 1; }
+        .price span { font-size: 1rem; color: #666; font-weight: 400; }
+        
+        .p-features { list-style: none; margin: 25px 0; flex-grow: 1; }
+        .p-features li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: #aaa; font-size: 0.95rem; }
+        .p-features li strong { color: #fff; }
+        .p-features li::before { content: "✓"; color: var(--success); margin-right: 10px; font-weight: bold; }
 
-        .btn { display: inline-block; padding: 18px 40px; background: var(--primary); color: white; text-decoration: none; font-weight: 900; text-transform: uppercase; border-radius: 4px; transition: 0.3s; letter-spacing: 1px; border: none; cursor: pointer; }
-        .btn:hover { background: #ff5247; box-shadow: 0 0 20px rgba(255, 59, 48, 0.4); }
+        .btn { display: inline-block; padding: 18px 40px; background: var(--primary); color: white; text-decoration: none; font-weight: 900; text-transform: uppercase; border-radius: 4px; transition: 0.3s; letter-spacing: 1px; border: none; cursor: pointer; text-align: center; }
+        .btn-outline { background: transparent; border: 1px solid var(--border); }
+        .btn-outline:hover { background: #fff; color: #000; }
 
         footer { padding: 60px 0; background: #000; text-align: center; border-top: 1px solid var(--border); color: #555; }
 
         @media (max-width: 992px) {
-            .pricing-wrap, .comparison-box, .card { grid-template-columns: 1fr !important; }
-            .hero h1 { font-size: 3rem; }
+            .pricing-wrap, .card { grid-template-columns: 1fr !important; }
+            .p-card.featured { transform: scale(1); }
         }
     </style>
 </head>
@@ -89,7 +94,7 @@
 
     <div class="ticker">
         <div class="ticker-inner">
-            // LIVE DATA: 100% TECHNICAL ACCURACY // US MARKET SPECIALISTS // NO STOCK PHOTOS ALLOWED // 
+            // LIVE DATA: 100% TECHNICAL ACCURACY // US MARKET SPECIALISTS // NO STOCK PHOTOS ALLOWED // OVER 10+ YEARS MECHANICAL EXPERIENCE // 
         </div>
     </div>
 
@@ -99,17 +104,6 @@
             <h1>Technical Accuracy. <br><span class="highlight">No Commercial Fluff.</span></h1>
             <p style="margin: 0 auto 40px;">I help US shop owners fill their bays with high-ticket work by speaking the technical language customers trust.</p>
             <a href="#pricing" class="btn">View Service Tiers</a>
-        </div>
-    </section>
-
-    <section class="stack-bar">
-        <div class="container">
-            <div class="stack-grid">
-                <div class="stack-item"><strong>Qualified</strong> MECHANIC</div>
-                <div class="stack-item"><strong>Certified</strong> GOOGLE ADS</div>
-                <div class="stack-item"><strong>Expert</strong> META BLUEPRINT</div>
-                <div class="stack-item"><strong>Certified</strong> HUBSPOT SEO</div>
-            </div>
         </div>
     </section>
 
@@ -123,7 +117,7 @@
             <div class="sample-text">
                 <span style="color: var(--primary); font-weight: bold; font-size: 0.8rem;">DIAGNOSTIC CASE: ENGINE HEALTH</span>
                 <h3 style="font-size: 1.8rem; margin: 15px 0;">Numbers Don't Lie: The Compression Reality</h3>
-                <p style="color: #ccc;">We use diagnostic data to justify the teardown. This build trust through transparent data.</p>
+                <p style="color: #ccc;">We use diagnostic data to justify the teardown. This builds trust through transparent data for your customers.</p>
             </div>
         </div>
 
@@ -139,51 +133,71 @@
         </div>
     </section>
 
-    <section id="pricing" class="container" style="padding-bottom: 100px;">
-        <div class="pricing-wrap">
-            <div class="p-card">
-                <h3>Lube Tech</h3>
-                <div class="price">$499<span>/mo</span></div>
-                <a href="mailto:knoesengeyer@icloud.com" class="btn" style="width:100%; text-align:center;">Select</a>
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 3rem; text-transform: uppercase;">Service <span class="highlight">Packages</span></h2>
+                <p style="color: #777;">Fixed Monthly Rates. No Contracts. Just Performance.</p>
             </div>
 
-            <div class="p-card featured">
-                <h3>Master Tech</h3>
-                <div class="price">$999<span>/mo</span></div>
-                <a href="mailto:knoesengeyer@icloud.com" class="btn" style="width:100%; text-align:center;">Select</a>
-            </div>
+            <div class="pricing-wrap">
+                <div class="p-card">
+                    <h3>Lube Tech</h3>
+                    <p style="color: #666; font-size: 0.8rem;">Foundation Marketing</p>
+                    <div class="price">$499<span>/mo</span></div>
+                    <ul class="p-features">
+                        <li><strong>3 Technical Posts</strong> per week</li>
+                        <li>GMB Profile Optimization</li>
+                        <li>US English Copywriting</li>
+                        <li>Basic Monthly Report</li>
+                        <li>Email Support</li>
+                    </ul>
+                    <a href="mailto:knoesengeyer@icloud.com?subject=Lube%20Tech%20Package" class="btn btn-outline">Start Here</a>
+                </div>
 
-            <div class="p-card">
-                <h3>Shop Foreman</h3>
-                <div class="price">$1,999<span>/mo</span></div>
-                <a href="mailto:knoesengeyer@icloud.com" class="btn" style="width:100%; text-align:center;">Select</a>
+                <div class="p-card featured">
+                    <div style="position: absolute; top: -15px; background: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; left: 50%; transform: translateX(-50%);">MOST POPULAR</div>
+                    <h3>Master Tech</h3>
+                    <p style="color: #888; font-size: 0.8rem;">Full Growth Management</p>
+                    <div class="price">$999<span>/mo</span></div>
+                    <ul class="p-features">
+                        <li><strong>5 Technical Posts</strong> per week</li>
+                        <li>Short-form Video Editing</li>
+                        <li>Full GMB Management</li>
+                        <li><strong>Competitor Tracking</strong></li>
+                        <li>Priority WhatsApp Support</li>
+                    </ul>
+                    <a href="mailto:knoesengeyer@icloud.com?subject=Master%20Tech%20Package" class="btn">Build My Shop</a>
+                </div>
+
+                <div class="p-card">
+                    <h3>Shop Foreman</h3>
+                    <p style="color: #666; font-size: 0.8rem;">The Enterprise Solution</p>
+                    <div class="price">$1,999<span>/mo</span></div>
+                    <ul class="p-features">
+                        <li><strong>Daily</strong> Technical Content</li>
+                        <li>Meta & Google Ads Mgmt</li>
+                        <li>Long-form Blog Writing</li>
+                        <li>Full Lead Tracking CRM</li>
+                        <li>Strategy Zoom Calls (2x)</li>
+                    </ul>
+                    <a href="mailto:knoesengeyer@icloud.com?subject=Shop%20Foreman%20Package" class="btn btn-outline">Scale Now</a>
+                </div>
             </div>
+            
+            
+
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 WRENCH & WRITE. BLOEMFONTEIN, SA.</p>
+    <footer id="contact">
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">READY FOR A <span class="highlight">DIAGNOSTIC?</span></h2>
+            <p style="margin-bottom: 30px; color: #888;">Direct from Bloemfontein to your bay doors.</p>
+            <a href="mailto:knoesengeyer@icloud.com" class="btn">Send an Email</a>
+            <p style="margin-top: 50px; font-size: 0.8rem; opacity: 0.3;">&copy; 2026 WRENCH & WRITE. SOUTH AFRICA.</p>
+        </div>
     </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
